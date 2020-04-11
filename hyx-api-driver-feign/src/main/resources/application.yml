@@ -5,7 +5,7 @@ server:
 #应用名称及验证账号
 spring: 
   application: 
-    name: api-passenger
+    name: api-driver-feign
     admin:
       enabled: true
   redis:

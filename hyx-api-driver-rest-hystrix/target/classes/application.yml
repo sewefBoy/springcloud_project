@@ -1,7 +1,7 @@
 #应用名称及验证账号
 spring: 
   application: 
-    name: api-driver-hystrix
+    name: api-driver-rest-hystrix
     admin:
       enabled: true
 
