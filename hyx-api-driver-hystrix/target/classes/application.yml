@@ -1,0 +1,64 @@
+#应用名称及验证账号
+spring: 
+  application: 
+    name: api-driver-hystrix
+    admin:
+      enabled: true
+
+#注册中心
+eureka: 
+  client:
+    #设置服务注册中心的URL
+    service-url:                      
+      defaultZone: http://root:root@eureka-7901:7901/eureka/
+  instance: 
+    hostname: localhost
+      
+
+#正常ribbon
+eureka-client:  
+  ribbon:  
+#    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RoundRobinRule
+    
+
+ribbon:
+  eager-load:
+    enabled: true
+    clients:
+    - EUREKA-CLIENT
+
+
+#Admin监控
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      ##默认是never
+      show-details: ALWAYS
+      enabled: true
+          
+logging:
+  level:
+    org.springframework: info    
+
+#feign自带Hystrix
+feign:
+  hystrix:
+    enabled: true 
+
+---
+spring:
+  profiles: hystrix-8002
+#服务端口
+server: 
+  port: 8002
+---
+spring:
+  profiles: hystrix-8003
+#服务端口
+server: 
+  port: 8003      

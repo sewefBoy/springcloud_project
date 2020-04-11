@@ -1,0 +1,49 @@
+#应用名称及验证账号
+spring: 
+  application: 
+    name: handwritten-balance
+server: 
+  port: 8002
+ 
+#注册中心
+eureka: 
+  client:
+    #设置服务注册中心的URL
+    service-url:                      
+      defaultZone: http://root:root@eureka-7900:7900/eureka/
+  instance: 
+    hostname: localhost
+      
+    
+#手写ribbon        
+service-sms: 
+  ribbon: 
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
+    eureka: 
+      enable: false
+    listOfServers: localhost:9002,localhost:9003
+
+#正常ribbon
+#SERVICE-SMS:  
+#  ribbon:  
+#    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
+    # 自定义负载策略
+#    NFLoadBalancerRuleClassName: com.online.taxi.driver.ribbonconfig.MsbRandomRule
+    
+#service-valuation: 
+#  ribbon: 
+#    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
+
+
+#---
+#spring:
+#  profiles: 9002
+##服务端口
+#server: 
+#  port: 9002
+#---
+#spring:
+#  profiles: 9003
+##服务端口
+#server: 
+#  port: 9003      
