@@ -52,13 +52,13 @@ feign:
 
 ---
 spring:
-  profiles: hystrix-8004
+  profiles: feign-hystrix-8004
 #服务端口
 server: 
   port: 8004
 ---
 spring:
-  profiles: hystrix-8005
+  profiles: feign-hystrix-8005
 #服务端口
 server: 
   port: 8005      

@@ -48,13 +48,13 @@ logging:
 
 ---
 spring:
-  profiles: hystrix-8002
+  profiles: rest-hystrix-8002
 #服务端口
 server: 
   port: 8002
 ---
 spring:
-  profiles: hystrix-8003
+  profiles: rest-hystrix-8003
 #服务端口
 server: 
   port: 8003      

@@ -8,10 +8,10 @@
 		<version>2.1.7.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.online.taxi.hystrix</groupId>
-	<artifactId>hyx-api-driver-rest-hystrix</artifactId>
+	<groupId>com.config.client</groupId>
+	<artifactId>hyx-config-client</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>hyx-api-driver-hystrix</name>
+	<name>hyx-config-client</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
@@ -76,11 +76,6 @@
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 		
-		<!-- <dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-redis</artifactId>
-		</dependency> -->
-		
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-actuator</artifactId>
@@ -92,7 +87,11 @@
 		    <artifactId>spring-boot-devtools</artifactId>
 		</dependency>
 		
-		
+		<!-- 配置中心客户端：config-client -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-config-client</artifactId>
+		</dependency>
 	</dependencies>
 
 	<dependencyManagement>

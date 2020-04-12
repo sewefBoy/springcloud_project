@@ -1,40 +1,29 @@
-# 前缀
+# 基础
 # 演示功能：
-# 1、前缀配置
+# 1、默认。
+# 2、网关负载均衡。
+# 3、路由端点
 
+#api-driver: 
+#  ribbon: 
+#    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
 
-zuul:
-  prefix: /api
-  # 是否移除前缀
-  strip-prefix: true
-  routes:
-    api-eureka-client: /zuul-api-eureka-client/**
-    api-driver-feign-hystrix: /zuul-api-driver-feign-hystrix/**
-  
-        
 server:
   port: 9100
 
 spring:
   application:
-    name: online-taxi-zuul
-    
-  #zipkin
-  zipkin:
-    base-url: http://localhost:9411/
-    #采样比例1，百分之八采样
-  sleuth:
-    sampler:
-      rate: 1 
+    name: hyx-api-driver-zuul
+
 #注册中心
 eureka: 
   client:
     #设置服务注册中心的URL
     service-url:                      
-      defaultZone: http://root:root@eureka-7900:7900/eureka/
+      defaultZone: http://root:root@eureka-7901:7901/eureka/
   instance: 
     hostname: localhost
-    instance-id: online-taxi-zuul 
+    instance-id: hyx-api-driver-zuul
 
 management:
   endpoints:
