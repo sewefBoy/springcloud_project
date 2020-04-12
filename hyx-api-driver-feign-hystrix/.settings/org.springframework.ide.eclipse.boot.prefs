@@ -1,2 +1,2 @@
 eclipse.preferences.version=1
-spring.boot.launch.profile.history=hystrix-8004;hystrix-8002;hystrix-9002;
+spring.boot.launch.profile.history=feign-hystrix-8004;hystrix-8004;hystrix-8002;hystrix-9002;
