@@ -11,8 +11,7 @@ spring:
       server:
         git:
         #https://github.com/yueyi2019/online-taxi-config-profile.git
-#          uri: https://github.com/sewefBoy/springcloud_project/tree/master/hyx-config-profile
-          uri: https://github.com/yueyi2019/online-taxi-config-profile
+          uri: https://github.com/sewefBoy/springcloud_project/tree/master/hyx-config-profile
           username: 
           password: 
                       #默认是秒，因为git慢
