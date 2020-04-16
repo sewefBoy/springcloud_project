@@ -1,0 +1,38 @@
+server: 
+  port: 8082
+#应用名称及验证账号
+spring: 
+  application: 
+    name: rest-template
+    admin:
+      enabled: true
+
+#注册中心
+eureka: 
+  client:
+    #设置服务注册中心的URL
+    service-url:                      
+      defaultZone: http://root:root@eureka-7901:7901/eureka/
+  instance: 
+    hostname: localhost
+
+
+#正常ribbon
+eureka-client:  
+  ribbon:  
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
+#    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RoundRobinRule
+    
+
+ribbon:
+  eager-load:
+    enabled: true
+    clients:
+    - EUREKA-CLIENT
+
+
+          
+logging:
+  level:
+    org.springframework: info    
+    
