@@ -31,10 +31,11 @@ public class UserController implements UserApi {
 		try {
 			System.out.println("准备睡");
 			
-			Thread.sleep(500);
+			Thread.sleep(5005);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			throw new RuntimeException("运行时间超时,修改睡眠时间");
 		}
 
 		int i = count.getAndIncrement();
@@ -49,33 +50,37 @@ public class UserController implements UserApi {
 	}
 	
 	@GetMapping("/getMap")
-	public Map<Integer, String> getMap(@RequestParam("id") Integer id) {
-		
-		
-		
+	public Map<String, String> getMap(@RequestParam("id") Integer id) {
+		try {
+			int a = 1/0;
+		}
+		catch(Exception e) {
+			e.getStackTrace();
+			throw new RuntimeException("除0异常了");
+		}
 		System.out.println(id);
-		return Collections.singletonMap(id, "mmeme");
+		return Collections.singletonMap(port, "mmeme");
 	}
 	@GetMapping("/getMap2")
-	public Map<Integer, String> getMap2(Integer id,String name) {
+	public Map<String, String> getMap2(Integer id,String name) {
 		// TODO Auto-generated method stub
 		System.out.println(id);
-		return Collections.singletonMap(id, name);
+		return Collections.singletonMap(port, name);
 	}
 	
 	@GetMapping("/getMap3")
-	public Map<Integer, String> getMap3(@RequestParam Map<String, Object> map) {
+	public Map<String, String> getMap3(@RequestParam Map<String, Object> map) {
 		// TODO Auto-generated method stub
 		System.out.println(map);
-		return Collections.singletonMap(Integer.parseInt(map.get("id").toString()), map.get("name").toString());
+		return Collections.singletonMap(port, map.get("name").toString());
 	}
 	
 	
 	@PostMapping("/postMap")
-	public Map<Integer, String> postMap(@RequestBody Map<String, Object> map) {
+	public Map<String, String> postMap(@RequestBody Map<String, Object> map) {
 		// TODO Auto-generated method stub
 		System.out.println(map);
-		return Collections.singletonMap(Integer.parseInt(map.get("id").toString()), map.get("name").toString());
+		return Collections.singletonMap(port, map.get("name").toString());
 	}
 
 	@Override

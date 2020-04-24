@@ -1,0 +1,63 @@
+#应用名称及验证账号
+spring: 
+  application: 
+    name: api-driver-feign
+    admin:
+      enabled: true
+
+#注册中心
+eureka: 
+  client:
+    #设置服务注册中心的URL
+    service-url:                      
+      defaultZone: http://root:root@eureka-7901:7901/eureka/
+  instance: 
+    hostname: localhost
+      
+
+#正常ribbon
+eureka-client:  
+  ribbon:  
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
+#    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RoundRobinRule
+    
+ribbon: 
+  #连接超时时间(ms)
+  ConnectTimeout: 1000
+  #业务逻辑超时时间(ms)
+  ReadTimeout: 2000
+  #同一台实例最大重试次数,不包括首次调用
+  MaxAutoRetries: 3
+  #重试负载均衡其他的实例最大重试次数,不包括首次调用
+  MaxAutoRetriesNextServer: 3
+  #是否所有操作都重试
+  OkToRetryOnAllOperations: true
+  
+
+feign:
+  hystrix:
+    enabled: true
+hystrix:   command: 
+    default: 
+      execultion: 
+        isolation: 
+          thread: 
+            timeoutInMilliseconds: 9000
+          strategy: SEMAPHORE
+          
+logging:
+  level:
+    com.online.taxi.feign.config: debug
+
+---
+spring:
+  profiles: feign-8104
+#服务端口
+server: 
+  port: 8104
+---
+spring:
+  profiles: feign-8105
+#服务端口
+server: 
+  port: 8105     
